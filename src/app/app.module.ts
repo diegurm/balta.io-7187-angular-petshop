@@ -18,7 +18,7 @@ import { CartPageComponent } from './pages/store/cart-page/cart-page.component';
 // Components
 import { NavbarComponent } from './components/shared/navbar/navbar.component';
 import { ProductCardComponent } from './components/store/product-card/product-card.component';
-
+import { LoadingComponent } from './components/shared/loading/loading.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,6 +31,7 @@ import { ProductCardComponent } from './components/store/product-card/product-ca
     ProductsPageComponent,
     CartPageComponent,
     ProductCardComponent,
+    LoadingComponent,
   ],
   imports: [
     BrowserModule,
