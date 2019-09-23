@@ -19,8 +19,12 @@ import { CartPageComponent } from './pages/store/cart-page/cart-page.component';
 import { NavbarComponent } from './components/shared/navbar/navbar.component';
 import { ProductCardComponent } from './components/store/product-card/product-card.component';
 import { LoadingComponent } from './components/shared/loading/loading.component';
+import { MaskDirective } from './directives/mask.directive';
+
 @NgModule({
   declarations: [
+    MaskDirective,
+
     AppComponent,
     FramePageComponent,
     NavbarComponent,
