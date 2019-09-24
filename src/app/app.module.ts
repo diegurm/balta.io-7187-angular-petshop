@@ -2,9 +2,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { ToastrModule } from 'ngx-toastr';
 
 import { AppRoutingModule } from './app-routing.module';
 import { DataService } from './services/data.service';
+import { AuthService } from './services/auth.service';
 
 import { AppComponent } from './app.component';
 import { FramePageComponent } from './pages/master/frame.page';
@@ -39,15 +43,14 @@ import { MaskDirective } from './directives/mask.directive';
   ],
   imports: [
     BrowserModule,
-     AppRoutingModule,
-     HttpClientModule,
-     ReactiveFormsModule,
-    ],
-  providers: [
-    DataService,
+    HttpClientModule,
+    ReactiveFormsModule,
+    BrowserAnimationsModule, // required animations module
+    ToastrModule.forRoot(), // ToastrModule added
+
+    AppRoutingModule,
   ],
-  bootstrap: [
-    AppComponent,
-  ],
+  providers: [DataService, AuthService],
+  bootstrap: [AppComponent],
 })
 export class AppModule {}

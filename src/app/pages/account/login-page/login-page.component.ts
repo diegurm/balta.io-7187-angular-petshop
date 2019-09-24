@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { DataService } from '../../../services/data.service';
+import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
+import { DataService } from '../../../services/data.service';
 import { CustomValidator } from '../../../validators/custom.validator';
+import { Security } from '../../../utils/security.util';
 
 @Component({
   selector: 'app-login-page',
@@ -14,6 +17,7 @@ export class LoginPageComponent implements OnInit {
   constructor(
     private readonly service: DataService,
     private readonly fb: FormBuilder,
+    private router: Router,
   ) {
     this.form = this.fb.group({
       username: [
@@ -22,7 +26,7 @@ export class LoginPageComponent implements OnInit {
           Validators.minLength(14),
           Validators.maxLength(14),
           Validators.required,
-          CustomValidator.isCpf()
+          CustomValidator.isCpf(),
         ]),
       ],
       password: [
@@ -31,7 +35,6 @@ export class LoginPageComponent implements OnInit {
           Validators.minLength(6),
           Validators.maxLength(20),
           Validators.required,
-          CustomValidator.EmailValidator
         ]),
       ],
     });
@@ -43,12 +46,12 @@ export class LoginPageComponent implements OnInit {
       this.busy = true;
       this.service.refreshToken().subscribe(
         (data: any) => {
-          localStorage.setItem('petshop.token', data.token);
           this.busy = false;
+          this.setUser(data);
         },
         err => {
-          console.log(err);
           this.busy = false;
+          Security.clear();
         },
       );
     }
@@ -58,13 +61,18 @@ export class LoginPageComponent implements OnInit {
     this.busy = true;
     this.service.authenticate(this.form.value).subscribe(
       (data: any) => {
-        localStorage.setItem('petshop.token', data.token);
         this.busy = false;
+        this.setUser(data);
       },
       err => {
-        console.log(err);
         this.busy = false;
+        Security.clear();
       },
     );
+  }
+
+  setUser({ customer, token }) {
+    Security.set(customer, token);
+    this.router.navigate(['/']);
   }
 }
