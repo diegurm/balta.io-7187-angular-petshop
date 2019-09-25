@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Cart } from 'src/app/models/cart.model';
+import { CartUtil } from '../../../utils/cart.util';
 
 @Component({
   selector: 'app-cart-page',
@@ -6,9 +8,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CartPageComponent implements OnInit {
 
+  public cart: Cart = new Cart();
+
   constructor() { }
 
   ngOnInit() {
+    this.loadCart();
+  }
+
+  public loadCart() {
+    this.cart = CartUtil.get();
+  }
+
+  public remove(item) {
+    const index = this.cart.items.indexOf(item);
+    this.cart.items.splice(index, 1);
+    CartUtil.update(this.cart);
   }
 
 }
