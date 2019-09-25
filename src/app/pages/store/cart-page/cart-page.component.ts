@@ -7,10 +7,9 @@ import { CartUtil } from '../../../utils/cart.util';
   templateUrl: './cart-page.component.html',
 })
 export class CartPageComponent implements OnInit {
-
   public cart: Cart = new Cart();
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit() {
     this.loadCart();
@@ -26,4 +25,8 @@ export class CartPageComponent implements OnInit {
     CartUtil.update(this.cart);
   }
 
+  public clear() {
+    CartUtil.clear();
+    this.loadCart();
+  }
 }
