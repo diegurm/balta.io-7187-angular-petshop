@@ -1,5 +1,13 @@
-# Petshop
+# 7187 - Petshop com Angular 
+Repositório do curso Criando Apps Web com Angular e UiKit
 
+## Projeto construído com: 
+* Angular
+* TypeScript
+* CSS
+* Html
+
+## Version dependencies
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.0.
 
 ## Development server
