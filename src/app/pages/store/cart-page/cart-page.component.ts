@@ -19,6 +19,12 @@ export class CartPageComponent implements OnInit {
     this.cart = CartUtil.get();
   }
 
+  public total(): number {
+    return this.cart.items.reduce((accumulator, item) => {
+      return accumulator + item.price * item.quantity;
+    }, 0);
+  }
+
   public remove(item) {
     const index = this.cart.items.indexOf(item);
     this.cart.items.splice(index, 1);

@@ -38,17 +38,15 @@
       <div>
         <br />
         {{ item.price / 100 | currency: 'BRL' }}
-        <a
-          class="uk-button uk-button-link uk-align-right"
-          (click)="remove(item)"
-        >
+        <a class="uk-button uk-button-link uk-align-right"
+          (click)="remove(item)">
           <span class="uk-icon" uk-icon="icon: close"></span>
         </a>
       </div>
     </div>
     <div class="uk-text-right">
       <h3 class="uk-text-right">
-        R$ 41,80
+        {{ total() / 100 | currency: 'BRL' }}
       </h3>
       <a
         href="/checkout"
