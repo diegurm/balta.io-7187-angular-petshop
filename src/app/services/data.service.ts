@@ -2,12 +2,13 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Product } from '../models/product.model';
 import { Security } from '../utils/security.util';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class DataService {
-  public url = 'http://localhost:3000/v1';
+  public url = environment.url;
 
   constructor(private readonly http: HttpClient) {}
 
