@@ -1,7 +1,12 @@
-# 7187 - Petshop com Angular 
-Repositório do curso Criando Apps Web com Angular e UiKit
+# 7187 - Petshop with Angular 
+Course Repository Creating Web Apps with Angular and UiKit
 
-## Projeto construído com: 
+![](./imgs/page-login.jpg)
+![](./imgs/page-home.jpg)
+![](./imgs/page-cart.jpg)
+
+
+## Project built with:
 * Angular
 * TypeScript
 * CSS
