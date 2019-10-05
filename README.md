@@ -3,6 +3,14 @@ Course Repository Creating Web Apps with Angular and UiKit
 
 ![](https://user-images.githubusercontent.com/1062248/66247135-29d6e700-e6f0-11e9-9154-5c39f8f0ff5a.png)
 
+Demo (https://petshop-angular.netlify.com/)
+
+## Access:
+
+* User: Generate CPF from site: [4Devs](https://www.4devs.com.br/gerador_de_cpf)
+* Password: Enter any password with at least 8 characters
+
+
 ## Project built with:
 * Angular
 * TypeScript
