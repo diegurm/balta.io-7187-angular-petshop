@@ -1,10 +1,7 @@
 # 7187 - Petshop with Angular 
 Course Repository Creating Web Apps with Angular and UiKit
 
-![](./imgs/page-login.jpg)
-![](./imgs/page-home.jpg)
-![](./imgs/page-cart.jpg)
-
+![](https://user-images.githubusercontent.com/1062248/66247135-29d6e700-e6f0-11e9-9154-5c39f8f0ff5a.png)
 
 ## Project built with:
 * Angular
