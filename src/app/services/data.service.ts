@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { map } from 'rxjs/operators';
+
 import { Product } from '../models/product.model';
 import { Security } from '../utils/security.util';
 import { environment } from '../../environments/environment';
@@ -20,21 +22,27 @@ export class DataService {
   }
 
   getProducts() {
-    return this.http.get<Product[]>(`${this.url}/products`);
+    return this.http
+      .get<Product[]>(`${this.url}/products`)
+      .pipe(map((res: any) => res.data));
   }
 
   authenticate(data) {
-    return this.http.post(`${this.url}/accounts/authenticate`, data);
+    return this.http
+      .post(`${this.url}/accounts/authenticate`, data)
+      .pipe(map((res: any) => res.data));
   }
 
   refreshToken() {
-    return this.http.post(`${this.url}/accounts/refresh-token`, null, {
-      headers: this.composeHeaders(),
-    });
+    return this.http
+      .post(`${this.url}/accounts/refresh-token`, null, {
+        headers: this.composeHeaders(),
+      });
   }
 
   resetPassword(data) {
-    return this.http.post(`${this.url}/accounts/reset-password`, data);
+    return this.http
+      .post(`${this.url}/accounts/reset-password`, data);
   }
 
   create(data) {
@@ -42,14 +50,21 @@ export class DataService {
   }
 
   getProfile() {
-    return this.http.get(`${this.url}/accounts`, {
-      headers: this.composeHeaders(),
-    });
+    return this.http
+      .get(`${this.url}/customers`, {
+        headers: this.composeHeaders(),
+      })
+      .pipe(map((res: any) => res.data[0]));
   }
 
   updateProfile(data) {
-    return this.http.put(`${this.url}/accounts`, data, {
-      headers: this.composeHeaders(),
-    });
+    const payload = Security.parseJwt(Security.getToken());
+    const { document } = payload;
+
+    return this.http
+      .put(`${this.url}/customers/${document}`, data, {
+        headers: this.composeHeaders(),
+      })
+      .pipe(map((res: any) => res.data));
   }
 }

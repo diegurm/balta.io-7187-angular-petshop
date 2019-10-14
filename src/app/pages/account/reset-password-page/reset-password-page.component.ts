@@ -3,7 +3,6 @@ import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { ToastrService } from 'ngx-toastr';
-
 import { DataService } from '../../../services/data.service';
 import { CustomValidator } from '../../../validators/custom.validator';
 
@@ -14,25 +13,24 @@ import { CustomValidator } from '../../../validators/custom.validator';
 export class ResetPasswordPageComponent implements OnInit {
   form: FormGroup;
   busy = false;
+
   constructor(
     private router: Router,
     private service: DataService,
     private fb: FormBuilder,
     private toastr: ToastrService,
   ) {
-    this.form = this.fb.group([
-      {
-        document: [
-          '',
-          Validators.compose([
-            Validators.minLength(14),
-            Validators.maxLength(14),
-            Validators.required,
-            CustomValidator.isCpf,
-          ]),
-        ],
-      },
-    ]);
+    this.form = this.fb.group({
+      document: [
+        '',
+        Validators.compose([
+          Validators.minLength(14),
+          Validators.maxLength(14),
+          Validators.required,
+          CustomValidator.isCpf(),
+        ]),
+      ],
+    });
   }
 
   ngOnInit() {}
