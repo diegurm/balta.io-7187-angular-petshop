@@ -1,5 +1,5 @@
 <h1 align="center">
-    <img alt="Dashshop" src="https://user-images.githubusercontent.com/1062248/66880978-a04ed100-ef9b-11e9-8306-f043a6c9bc2e.png" />
+    <img alt="Dashshop" src="https://user-images.githubusercontent.com/1062248/67145591-0f0c8280-f259-11e9-803b-e98a27285cbd.png" />
     <br>
     Angular | Redux | Rxjs
 </h1>
