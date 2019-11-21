@@ -1,5 +1,8 @@
-import { CartItem } from './cart-item.model';
+import { CartItemModel } from './cart-item.model';
 
-export class Cart {
-  constructor(public items: CartItem[] = []) {}
+export class CartModel {
+  constructor(
+    public items: CartItemModel[] = [],
+    public total: number = 0,
+  ) {}
 }
