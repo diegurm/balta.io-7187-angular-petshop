@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Product } from '../../../models/product.model';
+import { ProductModel } from '../../../models/product.model';
 import { CartUtil } from '../../../utils/cart.util';
 import { ToastrService } from 'ngx-toastr';
 
@@ -9,7 +9,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class ProductCardComponent implements OnInit {
   @Input()
-  product: Product;
+  product: ProductModel;
 
   constructor(private readonly toastr: ToastrService) {}
 
