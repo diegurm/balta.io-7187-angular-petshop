@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  url: 'https://petshop-api-v1.herokuapp.com/v1'
+  url: 'https://petshop-api.azurewebsites.net/v1'
 };
