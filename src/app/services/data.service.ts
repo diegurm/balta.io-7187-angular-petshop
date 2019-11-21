@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 
-import { Product } from '../models/product.model';
+import { ProductModel } from '../models/product.model';
 import { Security } from '../utils/security.util';
 import { environment } from '../../environments/environment';
 
@@ -23,7 +23,7 @@ export class DataService {
 
   getProducts() {
     return this.http
-      .get<Product[]>(`${this.url}/products`)
+      .get<ProductModel[]>(`${this.url}/products`)
       .pipe(map((res: any) => res.data));
   }
 
