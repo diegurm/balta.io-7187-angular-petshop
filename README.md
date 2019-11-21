@@ -1,3 +1,9 @@
+<h1 align="center">
+    <img alt="Dashshop" src="https://user-images.githubusercontent.com/1062248/67145591-0f0c8280-f259-11e9-803b-e98a27285cbd.png" />
+    <br>
+    Angular | Redux | Rxjs
+</h1>
+
 # 7187 - Petshop with Angular 
 Course Repository Creating Web Apps with Angular and UiKit
 
