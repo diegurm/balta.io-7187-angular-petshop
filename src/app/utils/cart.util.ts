@@ -1,14 +1,14 @@
-import { Cart } from '../models/cart.model';
-import { CartItem } from '../models/cart-item.model';
+import { CartModel } from '../models/cart.model';
+import { CartItemModel } from '../models/cart-item.model';
 
 const _CART = 'petshopcart';
 
 export class CartUtil {
-  public static get(): Cart {
+  public static get(): CartModel {
     const data = localStorage.getItem(_CART);
 
     if (!data) {
-      return new Cart();
+      return new CartModel();
     }
 
     return JSON.parse(data);
@@ -23,13 +23,13 @@ export class CartUtil {
   ) {
     const cart = this.get();
 
-    const item = new CartItem(id, product, quantity, price, image);
+    const item = new CartItemModel(id, product, quantity, price, image);
     cart.items.push(item);
 
     localStorage.setItem(_CART, JSON.stringify(cart));
   }
 
-  public static update(cart: Cart) {
+  public static update(cart: CartModel) {
     localStorage.setItem(_CART, JSON.stringify(cart));
   }
 
