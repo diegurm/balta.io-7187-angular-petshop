@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Cart } from 'src/app/models/cart.model';
+import { CartModel } from 'src/app/models/cart.model';
 import { CartUtil } from '../../../utils/cart.util';
 
 @Component({
@@ -7,7 +7,7 @@ import { CartUtil } from '../../../utils/cart.util';
   templateUrl: './cart-page.component.html',
 })
 export class CartPageComponent implements OnInit {
-  public cart: Cart = new Cart();
+  public cart: CartModel = new CartModel();
 
   constructor() {}
 
